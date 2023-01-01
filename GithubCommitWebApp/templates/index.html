@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #cccccc;
+            font-family: 'Helvetica', sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GitHub Commit Search</h1>
+    <form method="post" action="/commits">
+        <label for="repo_url">Enter a GitHub repository URL:</label>
+        <input type="text" id="repo_url" name="repo_url"><br>
+        <label for="token">Enter your GitHub personal access token:</label>
+        <input type="text" id="token" name="token"><br>
+        <label for="start_date">Select start date:</label>
+        <input type="date" id="start_date" name="start_date"><br>
+        <label for="end_date">Select end date:</label>
+        <input type="date" id="end_date" name="end_date"><br>
+        <input type="submit" value="Fetch Commit Links">
+    </form>
+</body>
+
+</html>

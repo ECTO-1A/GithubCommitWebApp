@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <!-- Load Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Commit Links</h1>
+        <div class="card-columns">
+            {% for commit_link in commit_links %}
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{ commit_link }}" class="card-link">{{ commit_link }}</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
