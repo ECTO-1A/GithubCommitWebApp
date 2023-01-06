@@ -49,9 +49,28 @@ def fetch_commit_links():
         commit_links = []
         for commit in data:
             commit_url = commit["html_url"]
-            commit_links.append(commit_url)
+            api_url = commit["url"]
+            commit_links.append(api_url)
 
-        return render_template("commits.html", commit_links=commit_links)
+        # Retrieve the commit statistics for each commit
+        commit_stats = []
+        for api_url in commit_links:
+            response = requests.get(api_url)
+            data2 = response.json()
+            stats = data2["stats"]["total"]
+            commit_stats.append(stats)
+
+        commit_data = []
+        for i, commit in enumerate(data):
+            commit_url = commit["html_url"]
+            api_url = commit["url"]
+            stats = commit_stats[i]
+            commit_data.append({"url": commit_url, "stats": stats})
+
+        return render_template(
+            "commits.html",
+            commit_data=commit_data,
+        )
     else:
         return render_template(
             "error.html",
