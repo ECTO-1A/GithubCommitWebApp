@@ -10,10 +10,11 @@
     <div class="container">
         <h1 class="text-center mb-4">Commit Links</h1>
         <div class="card-columns">
-            {% for commit_link in commit_links %}
+            {% for commit in commit_data %}
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ commit_link }}" class="card-link">{{ commit_link }}</a>
+                    <a href="{{ commit.url }}" class="card-link">{{ commit.url }}</a> Total Changes: {{ commit.stats
+                    }}
                 </div>
             </div>
             {% endfor %}
